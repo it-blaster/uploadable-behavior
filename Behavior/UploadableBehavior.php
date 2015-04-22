@@ -90,6 +90,8 @@ class UploadableBehavior extends \Behavior
             'class_name' => $builder->getStubObjectBuilder()->getClassname()
         ));
 
+        $script .= $this->renderTemplate('makeFileName');
+
         $script .= $this->renderTemplate('moveUploadedFile');
 
         return $script;

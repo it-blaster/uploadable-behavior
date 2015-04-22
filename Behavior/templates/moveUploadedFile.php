@@ -10,7 +10,7 @@ protected function moveUploadedFile($file)
         $file = new \Symfony\Component\HttpFoundation\File\File($file);
     }
 
-    $name = md5(microtime() . $file->getFilename()) .'.'. $file->guessExtension();
+    $name = $this->makeFileName($file);
 
     $file->move($this->getUploadRoot() . $this->getUploadDir(), $name);
 
