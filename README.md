@@ -1,2 +1,5 @@
 # UploadableBehavior
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/it-blaster/uploadable-behavior/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/it-blaster/uploadable-behavior/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/it-blaster/uploadable-behavior/badges/build.png?b=master)](https://scrutinizer-ci.com/g/it-blaster/uploadable-behavior/build-status/master) [![License](https://poser.pugx.org/it-blaster/uploadable-behavior/license.svg)](https://packagist.org/packages/it-blaster/uploadable-behavior) [![Total Downloads](https://poser.pugx.org/it-blaster/uploadable-behavior/downloads)](https://packagist.org/packages/it-blaster/uploadable-behavior) [![Latest Unstable Version](https://poser.pugx.org/it-blaster/uploadable-behavior/v/unstable.svg)](https://packagist.org/packages/it-blaster/uploadable-behavior) [![Latest Stable Version](https://poser.pugx.org/it-blaster/uploadable-behavior/v/stable.svg)](https://packagist.org/packages/it-blaster/uploadable-behavior)
+
 The UploadableBehavior helps you handle uploaded files with Propel.
