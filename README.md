@@ -65,6 +65,4 @@ Remember that this behavior handles uploaded files (moves them and sets columns'
 So:
 - if you don't have a view transformer or overridden getters that convert string file paths to `File` objects,
 set `null` to the `data_class` option of form fields;
-- if you send an empty value for file field and don't want to erase column's value, handle it yourself;
 - if you want to have a way to delete uploaded files, do it yourself;
-- if you need anything else... well, you know.
