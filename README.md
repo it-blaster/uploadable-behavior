@@ -63,4 +63,4 @@ that it has to return a web path to the uploaded file (of course if you don't wa
 
 - If you don't have a view transformer or overridden getters that convert string file paths to `File` objects,
 set `null` to the `data_class` option of form fields.
-- The behavior doesn't erase column's value if gets `NULL`. If you want to do it, pass the `FALSE` value.
+- The behavior doesn't erase column's value if gets `NULL`. If you want to do it, pass any other false value.
