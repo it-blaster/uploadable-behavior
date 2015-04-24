@@ -6,6 +6,10 @@
 */
 protected function moveUploadedFile($file)
 {
+    if (is_null($file)) {
+        return null;
+    }
+
     if (!$file instanceof \Symfony\Component\HttpFoundation\File\File) {
         $file = new \Symfony\Component\HttpFoundation\File\File($file);
     }
