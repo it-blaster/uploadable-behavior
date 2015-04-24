@@ -11,7 +11,7 @@ Add it-blaster/uploadable-behavior to your `composer.json` file and run `compose
 ```json
 ...
 "require": {
-    "it-blaster/uploadable-behavior": "dev-master"
+    "it-blaster/uploadable-behavior": "1.0.*"
 }
 ...
 ```
