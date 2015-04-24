@@ -61,6 +61,10 @@ that it has to return a web path to the uploaded file (of course if you don't wa
 
 ## Notes
 
-- If you don't have a view transformer or overridden getters that convert string file paths to `File` objects,
-set `null` to the `data_class` option of form fields.
-- The behavior doesn't erase column's value if gets `NULL`. If you want to do it, pass any other false value.
+Remember that this behavior handles uploaded files (moves them and sets columns' values) and does nothing more.
+So:
+- if you don't have a view transformer or overridden getters that convert string file paths to `File` objects,
+set `null` to the `data_class` option of form fields;
+- if you send an empty value for file field and don't want to erase column's value, handle it yourself;
+- if you want to have a way to delete uploaded files, do it yourself;
+- if you need anything else... well, you know.
