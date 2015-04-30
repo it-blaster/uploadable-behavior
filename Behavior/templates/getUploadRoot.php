@@ -6,5 +6,5 @@
 */
 protected function getUploadRoot()
 {
-    return __DIR__ .'/../../../../../web';
+    return __DIR__ .'/../../../../../../../web';
 }
