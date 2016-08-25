@@ -11,7 +11,9 @@ namespace Fenrizbes\UploadableBehavior\Behavior;
 class UploadableBehavior extends \Behavior
 {
     protected $parameters = array(
-        'columns' => 'file'
+        'columns' => 'file',
+        'use_origin_fileName' => false, //использовать колоки для хранения оригинального имени файла
+
     );
 
     protected $columns;
@@ -32,6 +34,16 @@ class UploadableBehavior extends \Behavior
         }
 
         return $this->columns;
+    }
+
+    /**
+     * Получение имени колоки для хранения оригинального имени файла
+     * @param $column
+     * @return string
+     */
+    protected function getOriginalNameColumn($column)
+    {
+        return trim($column) . "_original_name";
     }
 
     /**
@@ -71,6 +83,16 @@ class UploadableBehavior extends \Behavior
                     'size' => 255
                 ));
             }
+            // добавление колонок для хранения оригинального имения файла
+            $origColumn = $this->getOriginalNameColumn($column);
+
+            if ($this->getParameter('use_origin_fileName') && !$table->hasColumn($origColumn)) {
+                $table->addColumn(array(
+                    'name' => $origColumn,
+                    'type' => 'VARCHAR',
+                    'size' => 255
+                ));
+            }
         }
     }
 
@@ -94,7 +116,27 @@ class UploadableBehavior extends \Behavior
 
         $script .= $this->renderTemplate('moveUploadedFile');
 
+        $script .= $this->renderSetOriginalFileName();
+
         return $script;
+    }
+
+    /*  Добавление метода для задания оригинального имени файла
+     *
+     */
+    protected function renderSetOriginalFileName()
+    {
+        $columnsSetters = array();
+        if ($this->getParameter('use_origin_fileName')) {
+            foreach ($this->getColumns() as $column) {
+                $columnsSetters[$column] = $this->getColumnSetter($this->getOriginalNameColumn($column));
+            }
+
+            if (count($columnsSetters)) {
+                return $this->renderTemplate("setOriginalFileName", array('columnsSetters' => $columnsSetters));
+            }
+        }
+        return '';
     }
 
     /**
